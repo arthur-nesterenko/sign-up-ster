@@ -9,7 +9,7 @@ const validate = values => {
         errors.pwd = 'Required.';
     }
     else if ( values.pwd.length < 6 ) {
-        error.pwd = 'Password should be minimum 6 characters long.';
+        errors.pwd = 'Password should be minimum 6 characters long.';
     }
     if ( values.confirm_pwd !== values.pwd ) {
         errors.confirm_pwd = 'Passwords do not match.';
@@ -34,6 +34,6 @@ const validate = values => {
     }
 
     return errors;
-}
+};
 
 export default validate;

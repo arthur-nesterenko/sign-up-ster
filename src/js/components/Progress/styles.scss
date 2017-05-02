@@ -1,0 +1,22 @@
+.progress-container{
+  margin: auto 0;
+  text-align: center;
+  padding: 15px 0;
+}
+.progress {
+  color: #03a9f4;
+  border: 1px solid #757575;
+  width: 100%;
+  text-align: center;
+}
+
+.progress::-moz-progress-bar {
+  background: #03a9f4;
+  border: 1px solid #757575;
+}
+
+.progress::-webkit-progress-value {
+  background:  #03a9f4;
+color:#fff;
+  border: 1px solid #757575;
+}

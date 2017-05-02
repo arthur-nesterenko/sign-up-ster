@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import FirstStep from './../../components/Step/First';
 import SecondStep from './../../components/Step/Second';
-
+import Progress from  './../../components/Progress';
 
 export  default  class SignUp extends React.PureComponent {
 
@@ -32,11 +32,16 @@ export  default  class SignUp extends React.PureComponent {
         const { page } = this.state;
 
         return (
-            <div>
-                {page === 1 && <FirstStep onSubmit={this.nextPage}/>}
-                {page === 2 && <SecondStep previousPage={this.previousPage}
-                                           onSubmit={this.nextPage}/>}
-                {/*{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}*/}
+            <div className="form-container">
+                <div className="progress-container">
+                    <Progress/>
+                </div>
+                <div>
+                    {page === 1 && <FirstStep onSubmit={this.nextPage}/>}
+                    {page === 2 && <SecondStep previousPage={this.previousPage}
+                                               onSubmit={this.nextPage}/>}
+                    {/*{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}*/}
+                </div>
             </div>
         );
     }

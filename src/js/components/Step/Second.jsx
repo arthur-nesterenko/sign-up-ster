@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm }   from   'redux-form';
 import shortid from "shortid";
-// import validate from './validate';
+import validate from './../../Helpers/validateSignUpForm';
 import renderField from './../../Helpers/renderField';
 
 let items = [
@@ -64,5 +64,5 @@ export default reduxForm( {
     form                    : 'signup',
     destroyOnUnmount        : false,
     forceUnregisterOnUnmount: true,
-    // validate
+    validate
 } )( SecondStep );
