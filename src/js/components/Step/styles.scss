@@ -50,9 +50,13 @@
     width: 100%;
     margin-top: 75px;
     margin-left: -30px;
-    padding-right: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
     padding-top: 25px;
-    text-align: right;
+    &:after {
+      clear: both;
+      display: table;
+    }
   }
 
   .btn-next {
@@ -61,13 +65,49 @@
     border: none;
     background: none;
     font-size: 16px;
+    float: right;
 
     &:hover {
       cursor: pointer;
     }
   }
+  .btn-previous {
+    color: #757575;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 16px;
+    float: left;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .selectField{
+    width: 100%;
+    line-height: 40px;
+  }
 }
 
-.error{
-  color:#b71c1c;
+.error {
+  color: #b71c1c;
+}
+
+.date-group{
+  width: 100%;
+  box-sizing: content-box;
+  display: inline-block;
+  div{
+    background: red;
+    border: 1px solid #757575;
+    width: 33%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+
+    .input-field{
+      border: none;
+    }
+  }
 }

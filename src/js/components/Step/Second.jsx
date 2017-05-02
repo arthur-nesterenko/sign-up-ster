@@ -3,6 +3,10 @@ import { Field, reduxForm }   from   'redux-form';
 import shortid from "shortid";
 import validate from './../../Helpers/validateSignUpForm';
 import renderField from './../../Helpers/renderField';
+// import renderRadio from './../../Helpers/renderRadio';
+import Radio from './../../components/Radio/Radio';
+import RadioGroup from './../../components/Radio/RadioGroup';
+
 
 let items = [
     'facebook',
@@ -11,33 +15,38 @@ let items = [
     'somithing else'
 ];
 
+
 const SecondStep = ( props ) => {
     const { handleSubmit, previousPage } = props;
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <div>
-                    <Field type='date' name="date_day" component={renderField} label="DD"/>
-                    <Field type='date' name="date_month" component={renderField} label="MM"/>
-                    <Field type='date' name="date_year" component={renderField} label="YYYY"/>
+        <form className="step-form" onSubmit={handleSubmit}>
+            <fieldset>
+                <legend>SignUp</legend>
+                <div className="date-group">
+                    <Field type='number' min="01" max="31" name="date_day" component={renderField} label="DD"/>
+                    <Field type='number' min="01" max="12" name="date_month" component={renderField} label="MM"/>
+                    <Field type='number' min="1991" max="2017" name="date_year" component={renderField} label="YYYY"/>
                 </div>
 
                 <div>
                     <label>Gender</label>
-                    <div>
-                        <label><Field name="gender" component='input' type="radio" value="male"/> Male</label>
-                        <label><Field name="gender" component='input' type="radio" value="female"/>
-                            Female</label>
-                        <label><Field name="gender" component='input' type="radio" value="unspecified"/>
-                            Unspecified
-                        </label>
-                    </div>
+
+                    <RadioGroup name="gender">
+                        <Field component={Radio} value="male" label="Male"/>
+                        <Field component={Radio} value="female" label="Female"/>
+                        <Field component={Radio} value="unspecified" label="Unspecified"/>
+                        {/*<Field component={Radio} value="male" label="Male"/>*/}
+                        {/*<Field component={Radio} value="female" label="Female"/>*/}
+                        {/*<Field component={Radio} value="unspecified"*/}
+                        {/*label="Unspecified"/>*/}
+                    </RadioGroup>
                 </div>
 
                 <div>
                     <label>Where did you know hear about us?</label>
+
                     <Field name="where_did_you_know" component={ variations =>
-                        <div>
+                        <div className="selectField">
                             <select {...variations}>
                                 <option value="">Select...</option>
                                 {items.map( item => <option value={item}
@@ -51,12 +60,12 @@ const SecondStep = ( props ) => {
                         )}
                     </Field>
                 </div>
-                <div>
-                    <button type="button" className="previous" onClick={previousPage}>Back</button>
-                    <button type="submit" className="next">Next</button>
+                <div className="step-form-footer">
+                    <button type="button" className="btn-previous" onClick={previousPage}>Back</button>
+                    <button type="submit" className="btn-next">Next</button>
                 </div>
-            </div>
-        </form>
+            </fieldset>
+        </form >
     );
 };
 

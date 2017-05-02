@@ -37,8 +37,8 @@ export  default  class SignUp extends React.PureComponent {
                     <Progress/>
                 </div>
                 <div>
-                    {page === 1 && <FirstStep onSubmit={this.nextPage}/>}
-                    {page === 2 && <SecondStep previousPage={this.previousPage}
+                    {page === 2 && <FirstStep onSubmit={this.nextPage}/>}
+                    {page === 1 && <SecondStep previousPage={this.previousPage}
                                                onSubmit={this.nextPage}/>}
                     {/*{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={onSubmit}/>}*/}
                 </div>
